@@ -4,3 +4,4 @@
 .out/
 # System
 .DS_Store
+/out/
