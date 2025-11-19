@@ -1,6 +1,6 @@
 # IntelliJ
 *.iml
 .idea/
-out/
+.out/
 # System
 .DS_Store
