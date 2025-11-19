@@ -7,6 +7,7 @@ import java.io.Reader;
 import java.io.Writer;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,8 +23,10 @@ public class TaskManager {
 
     private static final Type TASK_LIST_TYPE = new TypeToken<List<Task>>() {}.getType();
 
-    public TaskManager(String fileName) {
-        try (Reader reader = Files.newBufferedReader(Paths.get(fileName))) {
+    public TaskManager(String fileName) throws IOException {
+        Path path = Path.of(fileName);
+        Files.createFile(path);
+        try (Reader reader = Files.newBufferedReader(path)) {
 
             List<Task> loaded = GSON.fromJson(reader, TASK_LIST_TYPE);
 

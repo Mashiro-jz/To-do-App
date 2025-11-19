@@ -1,4 +1,4 @@
-void main(){
+void main() throws IOException {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
         String fileName = "tasks.json";
